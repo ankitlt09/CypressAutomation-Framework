@@ -1,1 +1,1 @@
-This is for Cypress Automation
+This is for Cypress Automation practise!
