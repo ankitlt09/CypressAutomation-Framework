@@ -17,7 +17,7 @@ Cypress.Commands.add('selectProduct',(productName)=>{
    
         cy.get('.card-title').each(($mobile,index,$list)=>{
 
-            if($mobile.text().includes("Blackberry")){
+            if($mobile.text().includes(productName)){
                 cy.get('button').eq(index).click();
 
             }
