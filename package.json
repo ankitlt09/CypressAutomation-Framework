@@ -1,6 +1,9 @@
 {
+  "//": [
+    "npx points to this location '/node_modules/.bin/'"
+  ],
   "devDependencies": {
-    "cypress": "^13.6.2",
+    "cypress": "^13.6.3",
     "cypress-iframe": "^1.0.1",
     "cypress-xpath": "^2.0.1"
   },
@@ -50,6 +53,7 @@
     "concat-map": "^0.0.1",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.3",
+    "cypress-mochawesome-reporter": "^3.8.0",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.10",
     "debug": "^4.3.4",
@@ -120,6 +124,7 @@
     "mimic-fn": "^2.1.0",
     "minimatch": "^3.1.2",
     "minimist": "^1.2.8",
+    "mochawesome-merge": "^4.3.0",
     "ms": "^2.1.2",
     "npm-run-path": "^4.0.1",
     "object-inspect": "^1.13.1",
@@ -181,7 +186,10 @@
     "yauzl": "^2.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress open",
+    "headedTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome --parellel",
+    "recordDashBoardTest": "npm run test -- --record --key 55cadc81-dd27-4a4b-91d9-ff9f9e37e71a --reporter mochawesome"
   },
   "author": "A.T",
   "license": "ISC"
