@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-01-17T10:10:28.897Z",
-    "end": "2024-01-17T10:10:39.312Z",
-    "duration": 10415,
+    "start": "2024-01-18T13:37:14.301Z",
+    "end": "2024-01-18T13:37:25.091Z",
+    "duration": 10790,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "91cf720c-8e88-4c6a-9c4c-a747ba614dfc",
+      "uuid": "79364efe-c4f2-4db0-b5a9-47738bfe25a8",
       "title": "",
       "fullFile": "cypress\\e2e\\Practise\\TestFramework\\File1.js",
       "file": "cypress\\e2e\\Practise\\TestFramework\\File1.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "348fbd30-573f-44bf-8888-427be867975d",
+          "uuid": "33d41d82-42cc-46cf-9c6c-2b25f4343442",
           "title": "Working in POM Framework",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should take data from external file",
               "fullTitle": "Working in POM Framework should take data from external file",
               "timedOut": null,
-              "duration": 8432,
+              "duration": 8326,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "// pulling code from other page class\nconst homePage = new _HomePage.default();\nconst productPage = new _Products.default();\ncy.visit(Cypress.env('url') + \"/angularpractice/\");\nhomePage.getEditBox().type(this.data.name);\n//to get the attribute of a tag, we use attr keyword of jQuery , checking property\nhomePage.getEditBox().should('have.attr', 'minlength', '2');\nhomePage.getGender().select(this.data.gender);\n//to verify the value of input is same in other input box\nhomePage.getTwoDataBinding().should('have.value', this.data.name);\n// to verify element is disabled on the webpage, checking behaviour\nhomePage.getCheckDisableButton().should('be.disabled');\n// cy.pause(); //can use debug() as \nhomePage.getShopTab().click().debug();\nCypress.config('defaultCommandTimeout', 8000); // this is explicit wait for the element, \n//declaring it at the top of spec will make the scope global for the test spec file\n// cy.get('.card-title').each(($mobile,index,$list)=>{\n//     if($mobile.text().includes(\"Blackberry\")){\n//         cy.get('button').eq(index).click();\n//     }\n// })\n//the above code can be wrapped in custom command in support directory\n//basic JS foreach loop is ok, but can lead to flakiness -\n// perhaps it's better to use cypress wrap method to allow the array to be iterated with cypress 'each' method\ncy.wrap(this.data.productName).each(element => {\n  cy.log(element);\n  cy.selectProduct(element);\n});\nproductPage.checkOutButton().click();\nvar sum = 0; // every variable is by default string in Javascript\ncy.get('tr td:nth-child(4) strong').each(($price, index, $list) => {\n  const amount = $price.text();\n  cy.log(amount);\n  var res = amount.split(' ');\n  res = res[1].trim();\n  sum = Number(sum) + Number(res); // convert to Number\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('h3 strong').then(function (element) {\n  const amount = element.text();\n  cy.log(amount);\n  var total = amount.split(' ');\n  total = total[1].trim();\n  expect(Number(total)).to.equal(Number(sum));\n});\ncy.get('button').contains('Checkout').click();\ncy.get('input#country').type(\"India\");\ncy.get('li > a').contains('India').click();\ncy.get('#checkbox2').click({\n  force: true\n}); // to avoid element not interactable issue\ncy.get('input[value=\"Purchase\"]').click();\ncy.get('.alert').then(function (element) {\n  const actualText = element.text();\n  expect(actualText.includes('Success')).to.be.true;\n});",
               "err": {},
-              "uuid": "c949fe2f-9eea-4829-896f-efd50f1d9f6f",
-              "parentUUID": "348fbd30-573f-44bf-8888-427be867975d",
+              "uuid": "565b9598-fed8-492f-9d68-f12fa995d6b3",
+              "parentUUID": "33d41d82-42cc-46cf-9c6c-2b25f4343442",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c949fe2f-9eea-4829-896f-efd50f1d9f6f"
+            "565b9598-fed8-492f-9d68-f12fa995d6b3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8432,
+          "duration": 8326,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -83,8 +83,8 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "mochawesome",
-        "saveHtml": true,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
         "useInlineDiffs": false,
@@ -93,7 +93,18 @@
       "version": "7.1.3"
     },
     "marge": {
-      "options": null,
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false
+      },
       "version": "6.2.0"
     }
   }

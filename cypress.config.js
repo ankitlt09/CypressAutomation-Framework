@@ -1,6 +1,23 @@
 const { defineConfig } = require("cypress");
+const {
+  addCucumberPreprocessorPlugin,
+} = require("@badeball/cypress-cucumber-preprocessor");
+const {
+  preprocessor,
+} = require("@badeball/cypress-cucumber-preprocessor/browserify");
 
-// npx cypress run --spec cypress\e2e\Practise\TestFramework\File1.js  --headed --browser "chrome" --env url="https://rahulshettyacademy.com"
+
+async function setupNodeEvents(on, config) {
+  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
+  await addCucumberPreprocessorPlugin(on, config);
+
+  on("file:preprocessor", preprocessor(config));
+
+  // Make sure to return the config object as it might have been modified by the plugin.
+  return config;
+}
+
+// npx cypress run --spec cypress\e2e\Practise\TestFramework\File1.js  --headed --browser chrome --env url="https://rahulshettyacademy.com"
 // command to run cypress with dynamic url at run time
 module.exports = defineConfig({
     projectId: "jv4hb2",
@@ -31,9 +48,7 @@ module.exports = defineConfig({
       },
 
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    specPattern: 'cypress/e2e/**/*.js'
+    setupNodeEvents,  // to make the code look clean
+    specPattern: 'cypress/e2e/BDD/*.feature'
   },
 });

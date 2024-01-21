@@ -1,0 +1,149 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-18T13:35:50.580Z",
+    "end": "2024-01-18T13:36:01.021Z",
+    "duration": 10441,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f08d7989-a728-4400-af74-090bbf36df71",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Practise\\Test3-Checkbox.js",
+      "file": "cypress\\e2e\\Practise\\Test3-Checkbox.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1e07d5b4-2ba7-40b1-9438-60c2032a0f18",
+          "title": "Checking new Actions on the WebPage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checkbox Actions",
+              "fullTitle": "Checking new Actions on the WebPage Checkbox Actions",
+              "timedOut": null,
+              "duration": 4447,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/AutomationPractice/');\n//click() can also be used but check() is more reliable\ncy.get('#checkBoxOption1').check().should('be.checked').and('have.value', 'option1');\ncy.get('#checkBoxOption1').uncheck().should('not.be.checked'); // uncheck checkbox\n// selecting multiple checkbox of same tag\ncy.get('input[type=\"checkbox\"]').check(['option2', 'option3']);",
+              "err": {},
+              "uuid": "44abe828-5ea7-473d-9ac1-62a88c247f7b",
+              "parentUUID": "1e07d5b4-2ba7-40b1-9438-60c2032a0f18",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checking Drop downs",
+              "fullTitle": "Checking new Actions on the WebPage Checking Drop downs",
+              "timedOut": null,
+              "duration": 1876,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/AutomationPractice/');\n//Static Drop down\ncy.get('select[id=\"dropdown-class-example\"]').select('option2').should('have.value', 'option2');\n//Dynamic Drop down\ncy.get('input[placeholder=\"Type to Select Countries\"]').type('ind');\ncy.get('.ui-menu-item div').each(($el, index, $list) => {\n  if ($el.text() === 'India') {\n    cy.wrap($el).click();\n  }\n});\ncy.get('input[placeholder=\"Type to Select Countries\"]').should('have.value', 'India'); // case sensitive",
+              "err": {},
+              "uuid": "dadbb391-7153-4f5e-abf2-cfa11998ed91",
+              "parentUUID": "1e07d5b4-2ba7-40b1-9438-60c2032a0f18",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checking Radio & Visibility Elements",
+              "fullTitle": "Checking new Actions on the WebPage Checking Radio & Visibility Elements",
+              "timedOut": null,
+              "duration": 1330,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/AutomationPractice/');\ncy.get('input[placeholder=\"Hide/Show Example\"]').should('be.visible');\ncy.get('#hide-textbox').click();\ncy.get('input[placeholder=\"Hide/Show Example\"]').should('not.be.visible');\ncy.get('#show-textbox').click();\ncy.get('input[placeholder=\"Hide/Show Example\"]').should('be.visible');\n//checking radio button\ncy.get('input[value=\"radio2\"]').check().should('be.checked');",
+              "err": {},
+              "uuid": "185e5d26-2434-480b-9e2b-db9f834b95e0",
+              "parentUUID": "1e07d5b4-2ba7-40b1-9438-60c2032a0f18",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44abe828-5ea7-473d-9ac1-62a88c247f7b",
+            "dadbb391-7153-4f5e-abf2-cfa11998ed91",
+            "185e5d26-2434-480b-9e2b-db9f834b95e0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7653,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
