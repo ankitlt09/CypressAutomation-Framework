@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-18T13:35:39.120Z",
+    "end": "2024-01-18T13:35:47.498Z",
+    "duration": 8378,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "db1805d0-abf4-412c-8b78-c32a9c08ca1b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Practise\\Test2-WebUIAction.js",
+      "file": "cypress\\e2e\\Practise\\Test2-WebUIAction.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2b68a6d4-7049-44d9-82d7-bb3eb6a067b5",
+          "title": "My First Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My firstTest case",
+              "fullTitle": "My First Test Suite My firstTest case",
+              "timedOut": null,
+              "duration": 5053,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://rahulshettyacademy.com/seleniumPractise/#/\");\ncy.get('.search-keyword').type('ca');\ncy.wait(2000);\ncy.get('.product:visible').should('have.length', 4);\n// Parent-child chaining\ncy.get('.products').as('productLocator'); // alias name assigned as variable\ncy.get('@productLocator').find('.product').should('have.length', 4);\n// cy.get(':nth-child(2) > .product-action > button').click();  in-built cypress locator \ncy.get('@productLocator').find('.product').eq(1).contains('ADD TO CART').click().then(function () {\n  console.log(\"Added to cart\"); // console.log is not a cypress command\n});\n// clicking the element dynamically rather than selecting statically through index\ncy.get('.products').find('.product').each(($el, index, $list) => {\n  const testVar = $el.find('h4.product-name').text();\n  if (testVar.includes('Cashews')) {\n    cy.wrap($el).find('button').click();\n  }\n});\n//Non cypress commands cannot resolve promise by themselves.We need to resolve it manually using then()\ncy.get('.brand').should('have.text', 'GREENKART'); // Assertion automatically handles promise chaining\n// should is a chai assertion\ncy.get('.brand').then(function (logoelement) {\n  cy.log(logoelement.text());\n});\n// const logo = cy.get('.brand'); this will throw error as promise is not handeld\n// cy.log(logo.text()); & text() is a jquery command not cypress command",
+              "err": {},
+              "uuid": "f6d56cb5-6777-41cf-8523-88afb9c21e6f",
+              "parentUUID": "2b68a6d4-7049-44d9-82d7-bb3eb6a067b5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f6d56cb5-6777-41cf-8523-88afb9c21e6f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5053,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

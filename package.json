@@ -1,8 +1,9 @@
 {
   "//": [
-    "npx points to this location '/node_modules/.bin/'"
+    "npx points to this location '/node_modules/.bin/cypress'"
   ],
   "devDependencies": {
+    "@cypress/browserify-preprocessor": "latest",
     "cypress": "^13.6.3",
     "cypress-iframe": "^1.0.1",
     "cypress-xpath": "^2.0.1"
@@ -12,6 +13,7 @@
   "description": "this is for cypress testing",
   "main": "index.js",
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
     "aggregate-error": "^3.1.0",
     "ansi-colors": "^4.1.3",
     "ansi-escapes": "^4.3.2",
@@ -53,6 +55,7 @@
     "concat-map": "^0.0.1",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.3",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-mochawesome-reporter": "^3.8.0",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.10",
@@ -189,7 +192,8 @@
     "test": "npx cypress open",
     "headedTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome --parellel",
-    "recordDashBoardTest": "npm run test -- --record --key 55cadc81-dd27-4a4b-91d9-ff9f9e37e71a --reporter mochawesome"
+    "recordDashBoardTest": "npm run test -- --record --key 55cadc81-dd27-4a4b-91d9-ff9f9e37e71a --spec cypress\\e2e\\**\\*.js --headed --browser chrome  --reporter mochawesome",
+    "runSpecTest": "npm run test -- --spec \"cypress/e2e/**/File1.js\""
   },
   "author": "A.T",
   "license": "ISC"
