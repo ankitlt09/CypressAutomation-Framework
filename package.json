@@ -6,7 +6,8 @@
     "@cypress/browserify-preprocessor": "latest",
     "cypress": "^13.6.3",
     "cypress-iframe": "^1.0.1",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.6.1"
   },
   "name": "cypress-automation",
   "version": "1.0.0",
@@ -55,7 +56,6 @@
     "concat-map": "^0.0.1",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.3",
-    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-mochawesome-reporter": "^3.8.0",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.10",
@@ -128,6 +128,7 @@
     "minimatch": "^3.1.2",
     "minimist": "^1.2.8",
     "mochawesome-merge": "^4.3.0",
+    "moment": "^2.30.1",
     "ms": "^2.1.2",
     "npm-run-path": "^4.0.1",
     "object-inspect": "^1.13.1",
@@ -190,10 +191,18 @@
   },
   "scripts": {
     "test": "npx cypress open",
-    "headedTest": "npm run test -- --headed",
-    "chromeTest": "npm run test -- --browser chrome --parellel",
-    "recordDashBoardTest": "npm run test -- --record --key 55cadc81-dd27-4a4b-91d9-ff9f9e37e71a --spec cypress\\e2e\\**\\*.js --headed --browser chrome  --reporter mochawesome",
-    "runSpecTest": "npm run test -- --spec \"cypress/e2e/**/File1.js\""
+    "headedTest": "npm run test --headed",
+    "chromeTest": "npm run test --browser chrome --parellel",
+    "recordDashBoardTest": "npm run test --record --key 55cadc81-dd27-4a4b-91d9-ff9f9e37e71a --spec cypress\\e2e\\**\\*.js --headed --browser chrome  --reporter mochawesome",
+    "runSpecTest": "npm run test --spec \"cypress/e2e/Practise/**/File1.js\""
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/e2e/BDD/stepDefinition/*.js",
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
   },
   "author": "A.T",
   "license": "ISC"
