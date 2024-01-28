@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-28T10:24:38.999Z",
+    "end": "2024-01-28T10:24:44.565Z",
+    "duration": 5566,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7d97cb52-027d-41fb-800f-f4d7f45e5ca8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Practise\\Test7-MouseHover.js",
+      "file": "cypress\\e2e\\Practise\\Test7-MouseHover.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3552ed04-db54-4b14-9d9a-5a5757b402e0",
+          "title": "Handle Hidden Mouse Hover elements",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should handle mouse hover elements",
+              "fullTitle": "Handle Hidden Mouse Hover elements should handle mouse hover elements",
+              "timedOut": null,
+              "duration": 2910,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/AutomationPractice/');\n// cypress directly doesn't handle mouse events, so use jQuery method\n// cy.get('div.mouse-hover-content').invoke('show');  // show() works with direct parent only\ncy.contains('Top').click({\n  force: true\n}); // use force keyword to work with hidden element without showing it on the DOM\n// verify url if contains the expected path\ncy.url().should('include', 'top');",
+              "err": {},
+              "uuid": "bac8ee21-0b84-4d7b-b446-1e871bb7f586",
+              "parentUUID": "3552ed04-db54-4b14-9d9a-5a5757b402e0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bac8ee21-0b84-4d7b-b446-1e871bb7f586"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2910,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "title": "Automation Report",
+        "overwrite": true,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -15,7 +15,7 @@ Given("I open Ecommerce page",function(){
 
 });
 
-
+//use function() when working with hooks instead of ()=>
 When("I add items to the cart",function(){
 
 

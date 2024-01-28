@@ -50,6 +50,6 @@ module.exports = defineConfig({
 
   e2e: {
     setupNodeEvents,  // to make the code look clean
-    specPattern: 'cypress/e2e/BDD/*.feature'
+    specPattern: 'cypress/e2e/'
   },
 });
